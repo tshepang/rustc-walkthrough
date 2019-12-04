@@ -1,12 +1,12 @@
 # rustc walkthrough
 
-NOTE: the compiler is in a transition from being pass-based (sequential) to being
-query-based (on-demand).
+*NOTE: the compiler is in a transition from being pass-based (sequential) to being
+query-based (on-demand).*
 
 ## steps
 
 Assumes we are doing a normal build, which means taking Rust source
-code and transforming it into binary format (i.e. something a CPU will undertand)
+code and transforming it into binary format (i.e. something a CPU will understand)
 
 1. process compiler flags, of which there's plenty
 
@@ -17,6 +17,7 @@ code and transforming it into binary format (i.e. something a CPU will undertand
 1. macro expansion and code elimination (i.e. cfg processing)
 
 1. lower to HIR (includes sugar removal)
+
    note: query-based compilation begins here
 
 1. type inference and type checking
@@ -25,7 +26,8 @@ code and transforming it into binary format (i.e. something a CPU will undertand
    for borrow checking)
 
 1. borrow checking (what makes Rust you-neek)
-   examples of what happens at this stage:
+
+   Examples of what happens at this stage:
    - bindings can't be used uninitialised
    - values can't be accessed once moved
    - values can't be moved while still borrowed
@@ -35,7 +37,8 @@ code and transforming it into binary format (i.e. something a CPU will undertand
    which helps with build times
 
 1. convert to LLVM IR
-   generics are expanded here (monomorphization)
+
+   Generics are expanded here (monomorphization)
 
 1. (optional) optimize
 
@@ -45,7 +48,7 @@ code and transforming it into binary format (i.e. something a CPU will undertand
 
 ## error handling
 
-guess: there's 3 levels of erros:
+guess: there's 3 levels of errors:
 
 - syntax errors
 - type errors
