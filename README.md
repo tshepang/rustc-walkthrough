@@ -46,14 +46,6 @@ code and transforming it into binary format (i.e. something a CPU will understan
 
 1. (in case of executables) linking
 
-## error handling
-
-guess: there's 3 levels of errors:
-
-- syntax errors
-- type errors
-- borrow errors
-
 ## more info
 
 - https://rust-lang.github.io/rustc-guide
